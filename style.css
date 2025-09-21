@@ -554,6 +554,24 @@ footer .line-footer p a {
   }
 }
 
+/* ===== CONTADOR DE VISITAS ===== */
+
+.contador-visitas {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff; /* ou a cor principal do site */
+}
+
+.contador-visitas a {
+    color: #28a745; /* ✅ verde do seu site */
+    text-decoration: none;
+}
+
+.contador-visitas a:hover {
+    text-decoration: underline;
+}
+
+
 
 
 
