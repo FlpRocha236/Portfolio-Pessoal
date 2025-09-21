@@ -128,6 +128,7 @@
             </div><!--interface-->
         </section><!--portfolio-->
 
+        <!-- ======= FORMULÁRIO COM EMAILJS ======= -->
         <section id="contato" class="formulario">
             <div class="interface">
                 <h2 class="titulo">ENTRE EM <span>CONTATO.</span></h2>
@@ -138,7 +139,7 @@
                     <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
                     <div class="btn-enviar"><input type="submit" value="Enviar"></div>
                 </form>
-                <p id="status-msg"></p>
+                <p id="status-msg" style="margin-top:10px;font-weight:bold;"></p>
             </div>
         </section><!--formulario-->
     </main>
@@ -161,22 +162,26 @@
                 <p><i class="bi bi-envelope-fill"></i>
                 <a href="mailto:feliprocha196@gmail.com">feliprocha196@gmail.com</a></p>
             </div>
-            </div>
-                <div class="contador-visitas" align="center">
+            <div class="contador-visitas" align="center">
                 <a title="contador de dias" href="https://www.calendario.cnt.br/ferramentas/contador-de-dias-calculadora-prazo-entre-datas">
                 <img src="https://contador-gratis.com/contadores-de-visitas/210925050347868.gif" alt="Contador de Visitas">
                 </a>
                 <div>
-                <a href="https://www.contador-gratis.com/" title="contador de visitas">Contador de Visitas</a>
+                    <a href="https://www.contador-gratis.com/" title="contador de visitas">Contador de Visitas</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- ======= SCRIPTS ======= -->
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-      emailjs.init("pB_oSw8pb6w0mgmRO"); 
+      emailjs.init("pB_oSw8pb6w0mgmRO"); // Public Key
     </script>
+
+    <!-- Script do formulário -->
+    <script src="menu.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

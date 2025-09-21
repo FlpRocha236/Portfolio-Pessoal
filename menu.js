@@ -1,3 +1,4 @@
+
 // ======== FORMULÁRIO DE CONTATO COM EMAILJS ========
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contato-form");
@@ -42,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
             statusMsg.textContent = "✅ Mensagem enviada com sucesso!";
             statusMsg.style.color = "green";
             form.reset();
-            console.log("Sua mensagem foi enviada com sucesso!");
         })
         .catch((error) => {
             console.error("Erro no EmailJS:", error);
