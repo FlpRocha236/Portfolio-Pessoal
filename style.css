@@ -559,11 +559,11 @@ footer .line-footer p a {
 .contador-visitas {
     margin-top: 20px;
     font-size: 14px;
-    color: #fff; /* ou a cor principal do site */
+    color: #fff; 
 }
 
 .contador-visitas a {
-    color: #28a745; /* ✅ verde do seu site */
+    color: #28a745; 
     text-decoration: none;
 }
 
