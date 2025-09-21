@@ -1,28 +1,3 @@
-// ======== MENU RESPONSIVO ========
-let btnMenu   = document.getElementById('btn-menu');
-let menu      = document.getElementById('menu-mobile');
-let overlay   = document.getElementById('overlay-menu');
-
-// Abrir menu
-btnMenu.addEventListener('click', function () {
-    menu.classList.add('abrir-menu');
-    overlay.classList.add('ativo');
-});
-
-// Fechar menu ao clicar em um link dentro do menu
-menu.addEventListener('click', function (e) {
-    if (e.target.tagName === "A" || e.target.classList.contains("menu-mobile")) {
-        menu.classList.remove('abrir-menu');
-        overlay.classList.remove('ativo');
-    }
-});
-
-// Fechar menu ao clicar no overlay
-overlay.addEventListener('click', function () {
-    menu.classList.remove('abrir-menu');
-    overlay.classList.remove('ativo');
-});
-
 // ======== FORMULÁRIO DE CONTATO COM EMAILJS ========
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contato-form");
@@ -67,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             statusMsg.textContent = "✅ Mensagem enviada com sucesso!";
             statusMsg.style.color = "green";
             form.reset();
-
-            // Mensagem no console
             console.log("Sua mensagem foi enviada com sucesso!");
         })
         .catch((error) => {
