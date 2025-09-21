@@ -137,18 +137,18 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--portfolio-->
-        <section id="contato" class="formulario">
-            <div class="interface">
-                <h2 class="titulo">ENTRE EM <span>CONTATO.</span></h2>
-                <form id="contato-form" action="">
-                        <input type="text" id="" name="nome" placeholder="Digite seu nome" required>
-                        <input type="text" id="" name="email" placeholder="Digite seu e-mail" required>
-                        <input type="tel" id="" name="telefone" placeholder="Digite seu telefone" required>
-                        <textarea id="" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
-                    <div class="btn-enviar"><input type="submit" value="Enviar"></div>
-                </form>
-                <p id="status-msg"></p>
-            </div>
+        <section id="contato" class="formulario"> <!--formulario-->
+        <div class="interface">
+            <h2 class="titulo">ENTRE EM <span>CONTATO.</span></h2>
+            <form id="contato-form">
+                <input type="text" name="nome" placeholder="Digite seu nome" required>
+                <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="tel" name="telefone" placeholder="Digite seu telefone" required>
+                <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+                <div class="btn-enviar"><input type="submit" value="Enviar"></div>
+            </form>
+            <p id="status-msg"></p>
+        </div>
         </section><!--formulario-->
     </main>
 
@@ -171,10 +171,10 @@
             </div>
         </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-   emailjs.init("pB_oSw8pb6w0mgmRO"); // Inicializa o EmailJS com sua Public Key
-</script>
-<script src="menu.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    emailjs.init("pB_oSw8pb6w0mgmRO"); 
+    </script>
+    <script src="menu.js" defer></script>
 </body>
 </html>

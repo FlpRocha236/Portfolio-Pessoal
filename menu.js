@@ -23,11 +23,10 @@ overlay.addEventListener('click', function () {
     overlay.classList.remove('ativo');
 });
 
-
-// ======== FORMULÁRIO DE CONTATO ========
+// ======== FORMULÁRIO DE CONTATO COM EMAILJS ========
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contato-form");
-    if (!form) return; // se não existir o formulário, não faz nada
+    if (!form) return;
 
     const statusMsg = document.getElementById("status-msg");
 
@@ -39,19 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const telefone = form.querySelector('[name="telefone"]').value.trim();
         const mensagem = form.querySelector('[name="mensagem"]').value.trim();
 
-        // ======== Validação simples ========
+        // Validação simples
         if (!nome || !email || !telefone || !mensagem) {
             statusMsg.textContent = "⚠️ Preencha todos os campos.";
             statusMsg.style.color = "orange";
             return;
         }
+
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             statusMsg.textContent = "⚠️ E-mail inválido.";
             statusMsg.style.color = "orange";
             return;
         }
 
-        // ======== ENVIO COM EMAILJS ========
+        // Envio com EmailJS
         emailjs.send(
             "service_zxf2ckd",   // Service ID
             "template_1mbssvh",  // Template ID
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             statusMsg.textContent = "✅ Mensagem enviada com sucesso!";
             statusMsg.style.color = "green";
             form.reset();
+
             // Mensagem no console
             console.log("Sua mensagem foi enviada com sucesso!");
         })
@@ -75,6 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
             statusMsg.textContent = "❌ Erro ao enviar. Tente novamente.";
             statusMsg.style.color = "red";
         });
-
     });
 });
