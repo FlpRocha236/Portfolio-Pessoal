@@ -25,6 +25,11 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+  .lang-btn { display: flex; border: 1px solid var(--border); overflow: hidden; }
+  .lang-btn button { background: none; border: none; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; padding: 0.35rem 0.65rem; color: var(--muted); cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .lang-btn button.active { background: var(--accent); color: #0a0a0f; }
+  .lang-btn button:not(.active):hover { color: var(--text); }
   .nav-menu-btn { display: none; background: none; border: 1px solid var(--border); color: var(--muted); padding: 0.4rem 0.7rem; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; }
 
   /* HERO */
@@ -65,8 +70,6 @@
   /* PROJETOS */
   #projetos { background: var(--bg); }
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: var(--border); }
-
-  /* PROJECT CARD */
   .project-card { background: var(--bg); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background 0.3s; }
   .project-card:hover { background: var(--bg3); }
 
@@ -79,36 +82,33 @@
   .browser-dot.yellow { background: #e8c76a; }
   .browser-dot.green { background: #5de0c5; }
   .browser-url { flex: 1; background: #111118; border-radius: 4px; padding: 0.25rem 0.6rem; font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted); margin-left: 0.5rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-  .browser-screen { width: 100%; height: 200px; overflow: hidden; position: relative; background: #1a1a24; }
+  .browser-screen { width: 100%; height: 200px; overflow: hidden; background: #1a1a24; }
   .browser-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: object-position 4s ease; display: block; }
   .project-card:hover .browser-screen img { object-position: bottom; }
 
-  /* TERMINAL CARD */
+  /* TERMINAL */
   .terminal-mockup { background: #0d1117; border-bottom: 1px solid var(--border); }
   .terminal-bar { background: #161b22; padding: 0.6rem 0.8rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .terminal-title { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); flex: 1; text-align: center; }
   .terminal-body { padding: 1.25rem; height: 200px; overflow: hidden; }
   .terminal-line { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.9; display: flex; gap: 0.75rem; }
   .t-method { font-weight: 500; min-width: 42px; }
-  .t-method.get { color: #5de0c5; }
-  .t-method.post { color: #e8c76a; }
-  .t-method.put { color: #7f9cf5; }
-  .t-method.del { color: #e87060; }
-  .t-route { color: #f0ede8; }
-  .t-status { margin-left: auto; color: #5de0c5; }
+  .t-method.get { color: #5de0c5; } .t-method.post { color: #e8c76a; }
+  .t-method.put { color: #7f9cf5; } .t-method.del { color: #e87060; }
+  .t-route { color: #f0ede8; } .t-status { margin-left: auto; color: #5de0c5; }
   .t-status.created { color: #e8c76a; }
   .t-comment { color: #444; font-size: 0.65rem; padding-left: 0.5rem; }
-  .t-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0.5rem 0; }
+  .t-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0.25rem 0; }
 
   /* PROJECT INFO */
-  .project-info { padding: 1.5rem 1.75rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
+  .project-info { padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; }
   .project-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
   .project-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); }
-  .project-arrow { width: 28px; height: 28px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; flex-shrink: 0; }
+  .project-arrow { width: 32px; height: 32px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
   .project-card:hover .project-arrow { border-color: var(--accent); color: var(--accent); transform: translate(2px,-2px); }
-  .project-info h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
-  .project-info p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
-  .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+  .project-info h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--text); margin-bottom: 0.5rem; }
+  .project-info p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.25rem; flex: 1; }
+  .project-tech { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
 
   /* SOBRE */
   #sobre { background: var(--bg2); }
@@ -161,13 +161,13 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* RESPONSIVE */
+  @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
     .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,15,0.97); padding: 1.5rem 5vw; gap: 1.2rem; border-bottom: 1px solid var(--border); }
     .nav-links.open { display: flex; }
     .nav-menu-btn { display: block; }
     .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
     .skill-group { grid-template-columns: 1fr; gap: 1rem; }
-    .projects-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -177,12 +177,18 @@
 <nav>
   <a href="#inicio" class="nav-logo">FR_DEV</a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#especialidades">Skills</a></li>
-    <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="#especialidades" id="nav-skills">Skills</a></li>
+    <li><a href="#projetos" id="nav-projects">Projetos</a></li>
+    <li><a href="#sobre" id="nav-about">Sobre</a></li>
+    <li><a href="#contato" id="nav-contact">Contato</a></li>
   </ul>
-  <button class="nav-menu-btn" onclick="toggleMenu()">MENU</button>
+  <div class="nav-right">
+    <div class="lang-btn">
+      <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-menu-btn" onclick="toggleMenu()">MENU</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -190,7 +196,7 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-tag">// Junior Back-End Developer · FATEC Araras · 4º Semestre</p>
+    <p class="hero-tag" id="hero-tag">// Junior Back-End Developer · FATEC Araras · 3º Semestre</p>
     <h1 class="hero-title">Felipe<br><span>Rocha</span></h1>
     <div class="hero-roles">
       <span class="role-badge hot">Python · Django</span>
@@ -199,22 +205,22 @@
       <span class="role-badge">Docker</span>
       <span class="role-badge">PostgreSQL</span>
     </div>
-    <p class="hero-sub">10+ anos em Quality Assurance, agora construindo sistemas back-end eficientes e escaláveis. Mentalidade analítica aplicada ao código.</p>
+    <p class="hero-sub" id="hero-sub">10+ anos em Quality Assurance, agora construindo sistemas back-end eficientes e escaláveis. Mentalidade analítica aplicada ao código.</p>
     <div class="hero-ctas">
-      <a href="#projetos" class="hero-cta">Ver projetos →</a>
-      <a href="#contato" class="hero-cta outline">Entre em contato</a>
+      <a href="#projetos" class="hero-cta" id="hero-cta1">Ver projetos →</a>
+      <a href="#contato" class="hero-cta outline" id="hero-cta2">Entre em contato</a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-scroll" id="hero-scroll">Scroll</div>
 </section>
 
 <!-- SKILLS -->
 <section id="especialidades">
-  <p class="section-tag reveal">// 01 — Stack Técnica</p>
-  <h2 class="section-title reveal">O que eu<br>domino.</h2>
+  <p class="section-tag reveal" id="skills-tag">// 01 — Stack Técnica</p>
+  <h2 class="section-title reveal" id="skills-title">O que eu<br>domino.</h2>
   <div class="skills-groups reveal">
     <div class="skill-group">
-      <span class="skill-group-label">Back-End</span>
+      <span class="skill-group-label" id="skills-backend">Back-End</span>
       <div class="skill-tags">
         <span class="tag hot">Python</span><span class="tag hot">Django</span>
         <span class="tag hot">Django REST Framework</span><span class="tag hot">Java 17</span>
@@ -223,7 +229,7 @@
       </div>
     </div>
     <div class="skill-group">
-      <span class="skill-group-label">Front-End</span>
+      <span class="skill-group-label" id="skills-frontend">Front-End</span>
       <div class="skill-tags">
         <span class="tag hot">Angular 21</span><span class="tag hot">TypeScript</span>
         <span class="tag">Angular Material</span><span class="tag">RxJS</span>
@@ -231,7 +237,7 @@
       </div>
     </div>
     <div class="skill-group">
-      <span class="skill-group-label">Banco de Dados</span>
+      <span class="skill-group-label" id="skills-db">Banco de Dados</span>
       <div class="skill-tags">
         <span class="tag hot">PostgreSQL</span><span class="tag">MySQL</span>
         <span class="tag">SQLite</span><span class="tag">ORM / JPA</span>
@@ -250,19 +256,14 @@
 
 <!-- PROJETOS -->
 <section id="projetos">
-  <p class="section-tag reveal">// 02 — Projetos</p>
-  <h2 class="section-title reveal">O que já<br>construí.</h2>
+  <p class="section-tag reveal" id="projects-tag">// 02 — Projetos</p>
+  <h2 class="section-title reveal" id="projects-title">O que já<br>construí.</h2>
   <div class="projects-grid">
 
-    <!-- 001 - E-commerce API (terminal) -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/ecommerce-api" target="_blank" rel="noopener">
       <div class="terminal-mockup">
         <div class="terminal-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
+          <div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div>
           <span class="terminal-title">ecommerce-api · Swagger UI</span>
         </div>
         <div class="terminal-body">
@@ -278,190 +279,88 @@
         </div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">001</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">001</span><div class="project-arrow">↗</div></div>
         <h3>E-commerce API</h3>
-        <p>REST API completa com arquitetura em camadas, controle de estoque, fluxo de pagamento, testes unitários e ambiente containerizado.</p>
-        <div class="project-tech">
-          <span class="tag hot">Java 17</span><span class="tag hot">Spring Boot 3</span>
-          <span class="tag hot">PostgreSQL</span><span class="tag">Docker</span><span class="tag">JUnit 5</span>
-        </div>
+        <p id="p-desc-001">REST API completa com arquitetura em camadas, controle de estoque, fluxo de pagamento, testes unitários e ambiente containerizado.</p>
+        <div class="project-tech"><span class="tag hot">Java 17</span><span class="tag hot">Spring Boot 3</span><span class="tag hot">PostgreSQL</span><span class="tag">Docker</span><span class="tag">JUnit 5</span></div>
       </div>
     </a>
 
-    <!-- 002 - E-commerce Frontend -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/ecommerce-frontend" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">mystore.vercel.app</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/ecommerce-frontend.png" alt="E-commerce Frontend — MyStore">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">mystore.vercel.app</div></div>
+        <div class="browser-screen"><img src="imgs/ecommerce-frontend.png" alt="E-commerce Frontend"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">002</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">002</span><div class="project-arrow">↗</div></div>
         <h3>E-commerce Frontend</h3>
-        <p>Interface integrada à E-commerce API com design minimalista inspirado na Apple Store. Carrinho, checkout e gestão de pedidos.</p>
-        <div class="project-tech">
-          <span class="tag hot">Angular 21</span><span class="tag hot">TypeScript</span>
-          <span class="tag">Angular Material</span><span class="tag">RxJS</span>
-        </div>
+        <p id="p-desc-002">Interface integrada à E-commerce API com design minimalista inspirado na Apple Store. Carrinho, checkout e gestão de pedidos.</p>
+        <div class="project-tech"><span class="tag hot">Angular 21</span><span class="tag hot">TypeScript</span><span class="tag">Angular Material</span><span class="tag">RxJS</span></div>
       </div>
     </a>
 
-    <!-- 003 - AgendaDashboard -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/AgendaDashboard" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">agendadashboard.railway.app</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/agenda-dashboard.png" alt="AgendaDashboard — Gestão Financeira">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">agendadashboard.railway.app</div></div>
+        <div class="browser-screen"><img src="imgs/agenda-dashboard.png" alt="AgendaDashboard"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">003</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">003</span><div class="project-arrow">↗</div></div>
         <h3>AgendaDashboard</h3>
-        <p>Sistema completo de gestão financeira com controle de orçamento, Robô Advisor com análise fundamentalista (Graham & Bazin) e módulo de saúde financeira.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">Fintech</span><span class="tag">PostgreSQL</span>
-        </div>
+        <p id="p-desc-003">Sistema completo de gestão financeira com controle de orçamento, Robô Advisor com análise fundamentalista (Graham & Bazin) e módulo de saúde financeira.</p>
+        <div class="project-tech"><span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">Fintech</span><span class="tag">PostgreSQL</span></div>
       </div>
     </a>
 
-    <!-- 004 - Rocha Açaí -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/Rocha_Acai" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">rochaacai.railway.app</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/rocha-acai.jpg" alt="Rocha Açaí — Delivery Manager">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">rochaacai.railway.app</div></div>
+        <div class="browser-screen"><img src="imgs/rocha-acai.jpg" alt="Rocha Açaí"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">004</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">004</span><div class="project-arrow">↗</div></div>
         <h3>Rocha Açaí</h3>
-        <p>Sistema completo de gestão para delivery. Dashboard com vendas em tempo real, controle de pedidos, estoque, financeiro e status da loja.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">HTML/CSS</span><span class="tag">SQLite</span>
-        </div>
+        <p id="p-desc-004">Sistema completo de gestão para delivery. Dashboard com vendas em tempo real, controle de pedidos, estoque, financeiro e status da loja.</p>
+        <div class="project-tech"><span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">HTML/CSS</span><span class="tag">SQLite</span></div>
       </div>
     </a>
 
-    <!-- 005 - Hub Vendas / NextChange -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/hub_vendas" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">nextchange.com.br</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/hub-vendas.jpg" alt="NextChange — Hub de Vendas SaaS">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">nextchange.com.br</div></div>
+        <div class="browser-screen"><img src="imgs/hub-vendas.jpg" alt="NextChange"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">005</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">005</span><div class="project-arrow">↗</div></div>
         <h3>NextChange</h3>
-        <p>Plataforma SaaS para criadores de conteúdo hospedarem cursos e mentorias com taxa zero por venda e checkout de alta performance.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">HTML/CSS</span><span class="tag">SaaS</span>
-        </div>
+        <p id="p-desc-005">Plataforma SaaS para criadores de conteúdo hospedarem cursos e mentorias com taxa zero por venda e checkout de alta performance.</p>
+        <div class="project-tech"><span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">HTML/CSS</span><span class="tag">SaaS</span></div>
       </div>
     </a>
 
-    <!-- 006 - AI Audio Separator -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/audio_project" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">audio-splitter.railway.app</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/audio-separator.png" alt="AI Audio Separator — Audio Splitter Pro">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">audio-splitter.railway.app</div></div>
+        <div class="browser-screen"><img src="imgs/audio-separator.png" alt="AI Audio Separator"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">006</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">006</span><div class="project-arrow">↗</div></div>
         <h3>AI Audio Separator</h3>
-        <p>Ferramenta para separação assíncrona de faixas de áudio usando IA. Isola voz, bateria, guitarra, baixo e piano de qualquer música.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">Celery</span><span class="tag">Demucs</span>
-        </div>
+        <p id="p-desc-006">Ferramenta para separação assíncrona de faixas de áudio usando IA. Isola voz, bateria, guitarra, baixo e piano de qualquer música.</p>
+        <div class="project-tech"><span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">Celery</span><span class="tag">Demucs</span></div>
       </div>
     </a>
 
-    <!-- 007 - Next Agenda -->
     <a class="project-card reveal" href="https://github.com/FlpRocha236/next-agenda" target="_blank" rel="noopener">
       <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="browser-dot red"></div>
-            <div class="browser-dot yellow"></div>
-            <div class="browser-dot green"></div>
-          </div>
-          <div class="browser-url">next-agenda.railway.app</div>
-        </div>
-        <div class="browser-screen">
-          <img src="imgs/next-agenda.png" alt="Next Agenda — Sistema de Agendamento">
-        </div>
+        <div class="browser-bar"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url">next-agenda.railway.app</div></div>
+        <div class="browser-screen"><img src="imgs/next-agenda.png" alt="Next Agenda"></div>
       </div>
       <div class="project-info">
-        <div class="project-meta">
-          <span class="project-num">007</span>
-          <div class="project-arrow">↗</div>
-        </div>
+        <div class="project-meta"><span class="project-num">007</span><div class="project-arrow">↗</div></div>
         <h3>Next Agenda</h3>
-        <p>Sistema de agendamento inteligente com dashboard de gestão, motor de disponibilidade automático e integração com WhatsApp.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">SQLite</span><span class="tag">WhatsApp API</span>
-        </div>
+        <p id="p-desc-007">Sistema de agendamento inteligente com dashboard de gestão, motor de disponibilidade automático e integração com WhatsApp.</p>
+        <div class="project-tech"><span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">SQLite</span><span class="tag">WhatsApp API</span></div>
       </div>
     </a>
 
@@ -470,16 +369,16 @@
 
 <!-- SOBRE -->
 <section id="sobre">
-  <p class="section-tag reveal">// 03 — Sobre</p>
-  <h2 class="section-title reveal">De QA a<br>Developer.</h2>
+  <p class="section-tag reveal" id="about-tag">// 03 — Sobre</p>
+  <h2 class="section-title reveal" id="about-title">De QA a<br>Developer.</h2>
   <div class="sobre-grid">
     <div>
-      <p class="sobre-text reveal">Com mais de 10 anos em Quality Assurance na indústria, desenvolvi uma mentalidade analítica e foco em processos que hoje aplico diretamente no desenvolvimento de software. Atualmente no 3º semestre de Desenvolvimento de Software Multiplataforma na FATEC Araras, construindo sistemas back-end robustos com Python/Django e Java/Spring Boot.</p>
+      <p class="sobre-text reveal" id="about-bio">Com mais de 10 anos em Quality Assurance na indústria, desenvolvi uma mentalidade analítica e foco em processos que hoje aplico diretamente no desenvolvimento de software. Atualmente no 3º semestre de Desenvolvimento de Software Multiplataforma na FATEC Araras, construindo sistemas back-end robustos com Python/Django e Java/Spring Boot.</p>
       <div class="sobre-stats reveal">
-        <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Anos em QA</div></div>
-        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Projetos reais</div></div>
-        <div class="stat"><div class="stat-num">3º</div><div class="stat-label">Semestre FATEC</div></div>
-        <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Tecnologias</div></div>
+        <div class="stat"><div class="stat-num">10+</div><div class="stat-label" id="stat1">Anos em QA</div></div>
+        <div class="stat"><div class="stat-num">7</div><div class="stat-label" id="stat2">Projetos reais</div></div>
+        <div class="stat"><div class="stat-num">3º</div><div class="stat-label" id="stat3">Semestre FATEC</div></div>
+        <div class="stat"><div class="stat-num">8+</div><div class="stat-label" id="stat4">Tecnologias</div></div>
       </div>
     </div>
     <div>
@@ -487,18 +386,18 @@
         <div class="exp-item">
           <p class="exp-company">DPA — Araras, SP</p>
           <p class="exp-title">Quality Assurance Assistant</p>
-          <p class="exp-period">Jul 2023 – Presente</p>
-          <p class="exp-desc">Supervisão da produção via QMS com AVEVA PI System, liberação de materiais no SAP e validação de dados CCP/OPRP.</p>
+          <p class="exp-period" id="exp1-period">Jul 2023 – Presente</p>
+          <p class="exp-desc" id="exp1-desc">Supervisão da produção via QMS com AVEVA PI System, liberação de materiais no SAP e validação de dados CCP/OPRP.</p>
         </div>
         <div class="exp-item">
           <p class="exp-company">DPA — Araras, SP</p>
           <p class="exp-title">Qualified Manufacturing Assistant I</p>
-          <p class="exp-period">Fev 2013 – Jul 2023</p>
-          <p class="exp-desc">Operação do processo de produção de iogurte, aplicação de GMP e análises de liberação de produto acabado (Brix, pH).</p>
+          <p class="exp-period" id="exp2-period">Fev 2013 – Jul 2023</p>
+          <p class="exp-desc" id="exp2-desc">Operação do processo de produção de iogurte, aplicação de GMP e análises de liberação de produto acabado (Brix, pH).</p>
         </div>
       </div>
       <div class="certs reveal">
-        <p class="certs-title">Certificações</p>
+        <p class="certs-title" id="certs-title">Certificações</p>
         <div class="cert-item"><span class="cert-name">Front-End Developer — FATEC Araras</span><span class="cert-date">Jul 2025</span></div>
         <div class="cert-item"><span class="cert-name">Databases — Fundação Bradesco</span><span class="cert-date">Jun 2025</span></div>
         <div class="cert-item"><span class="cert-name">Logic & Structuring — Microlins</span><span class="cert-date">Dez 2022</span></div>
@@ -511,11 +410,11 @@
 
 <!-- CONTATO -->
 <section id="contato">
-  <p class="section-tag reveal">// 04 — Contato</p>
-  <h2 class="section-title reveal">Vamos<br>trabalhar juntos.</h2>
+  <p class="section-tag reveal" id="contact-tag">// 04 — Contato</p>
+  <h2 class="section-title reveal" id="contact-title">Vamos<br>trabalhar juntos.</h2>
   <div class="contato-grid">
     <div class="contato-info reveal">
-      <p>Aberto a oportunidades de Dev Junior, freelas e colaborações. Manda uma mensagem!</p>
+      <p id="contact-sub">Aberto a oportunidades de Dev Junior, freelas e colaborações. Manda uma mensagem!</p>
       <a href="mailto:feliprocha196@gmail.com" class="contato-email-link">feliprocha196@gmail.com</a>
       <div class="social-links">
         <a href="https://github.com/FlpRocha236" target="_blank" rel="noopener" class="social-link">GitHub</a>
@@ -539,13 +438,89 @@
 <!-- FOOTER -->
 <footer>
   <span>© 2025 Felipe Rocha</span>
-  <span>Junior Back-End Developer · Araras, SP</span>
+  <span id="footer-role">Junior Back-End Developer · Araras, SP</span>
 </footer>
 
-<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   emailjs.init("pB_oSw8pb6w0mgmRO");
+
+  // ── i18n ──
+  const i18n = {
+    pt: {
+      'nav-skills': 'Skills', 'nav-projects': 'Projetos', 'nav-about': 'Sobre', 'nav-contact': 'Contato',
+      'hero-tag': '// Junior Back-End Developer · FATEC Araras · 3º Semestre',
+      'hero-sub': '10+ anos em Quality Assurance, agora construindo sistemas back-end eficientes e escaláveis. Mentalidade analítica aplicada ao código.',
+      'hero-cta1': 'Ver projetos →', 'hero-cta2': 'Entre em contato', 'hero-scroll': 'Scroll',
+      'skills-tag': '// 01 — Stack Técnica', 'skills-title': 'O que eu<br>domino.',
+      'skills-backend': 'Back-End', 'skills-frontend': 'Front-End', 'skills-db': 'Banco de Dados',
+      'projects-tag': '// 02 — Projetos', 'projects-title': 'O que já<br>construí.',
+      'p-desc-001': 'REST API completa com arquitetura em camadas, controle de estoque, fluxo de pagamento, testes unitários e ambiente containerizado.',
+      'p-desc-002': 'Interface integrada à E-commerce API com design minimalista inspirado na Apple Store. Carrinho, checkout e gestão de pedidos.',
+      'p-desc-003': 'Sistema completo de gestão financeira com controle de orçamento, Robô Advisor com análise fundamentalista (Graham & Bazin) e módulo de saúde financeira.',
+      'p-desc-004': 'Sistema completo de gestão para delivery. Dashboard com vendas em tempo real, controle de pedidos, estoque, financeiro e status da loja.',
+      'p-desc-005': 'Plataforma SaaS para criadores de conteúdo hospedarem cursos e mentorias com taxa zero por venda e checkout de alta performance.',
+      'p-desc-006': 'Ferramenta para separação assíncrona de faixas de áudio usando IA. Isola voz, bateria, guitarra, baixo e piano de qualquer música.',
+      'p-desc-007': 'Sistema de agendamento inteligente com dashboard de gestão, motor de disponibilidade automático e integração com WhatsApp.',
+      'about-tag': '// 03 — Sobre', 'about-title': 'De QA a<br>Developer.',
+      'about-bio': 'Com mais de 10 anos em Quality Assurance na indústria, desenvolvi uma mentalidade analítica e foco em processos que hoje aplico diretamente no desenvolvimento de software. Atualmente no 3º semestre de Desenvolvimento de Software Multiplataforma na FATEC Araras, construindo sistemas back-end robustos com Python/Django e Java/Spring Boot.',
+      'stat1': 'Anos em QA', 'stat2': 'Projetos reais', 'stat3': 'Semestre FATEC', 'stat4': 'Tecnologias',
+      'exp1-period': 'Jul 2023 – Presente',
+      'exp1-desc': 'Supervisão da produção via QMS com AVEVA PI System, liberação de materiais no SAP e validação de dados CCP/OPRP.',
+      'exp2-period': 'Fev 2013 – Jul 2023',
+      'exp2-desc': 'Operação do processo de produção de iogurte, aplicação de GMP e análises de liberação de produto acabado (Brix, pH).',
+      'certs-title': 'Certificações',
+      'contact-tag': '// 04 — Contato', 'contact-title': 'Vamos<br>trabalhar juntos.',
+      'contact-sub': 'Aberto a oportunidades de Dev Junior, freelas e colaborações. Manda uma mensagem!',
+      'btn-enviar': 'Enviar mensagem →',
+      'footer-role': 'Junior Back-End Developer · Araras, SP',
+      'nome-ph': 'Seu nome', 'email-ph': 'Seu e-mail', 'telefone-ph': 'Seu telefone', 'mensagem-ph': 'Sua mensagem',
+    },
+    en: {
+      'nav-skills': 'Skills', 'nav-projects': 'Projects', 'nav-about': 'About', 'nav-contact': 'Contact',
+      'hero-tag': '// Junior Back-End Developer · FATEC Araras · 3rd Semester',
+      'hero-sub': '10+ years in Quality Assurance, now building efficient and scalable back-end systems. Analytical mindset applied to code.',
+      'hero-cta1': 'View projects →', 'hero-cta2': 'Get in touch', 'hero-scroll': 'Scroll',
+      'skills-tag': '// 01 — Tech Stack', 'skills-title': 'What I<br>master.',
+      'skills-backend': 'Back-End', 'skills-frontend': 'Front-End', 'skills-db': 'Database',
+      'projects-tag': '// 02 — Projects', 'projects-title': "What I've<br>built.",
+      'p-desc-001': 'Full REST API with layered architecture, stock control, payment flow, unit tests, and containerized environment.',
+      'p-desc-002': 'Interface integrated with the E-commerce API, minimalist design inspired by the Apple Store. Cart, checkout, and order management.',
+      'p-desc-003': 'Complete personal finance management system with budget control, Robo Advisor with fundamental analysis (Graham & Bazin), and financial health module.',
+      'p-desc-004': 'Complete delivery management system. Real-time sales dashboard, order control, stock, financials, and store status.',
+      'p-desc-005': 'SaaS platform for content creators to host courses and mentoring with zero fees per sale and high-performance checkout.',
+      'p-desc-006': 'Tool for asynchronous AI-powered audio stem separation. Isolates vocals, drums, guitar, bass, and piano from any song.',
+      'p-desc-007': 'Smart scheduling system with management dashboard, automatic availability engine, and WhatsApp integration.',
+      'about-tag': '// 03 — About', 'about-title': 'From QA to<br>Developer.',
+      'about-bio': 'With over 10 years in industrial Quality Assurance, I developed an analytical mindset and process discipline that I now apply directly to software development. Currently in the 3rd semester of Multiplatform Software Development at FATEC Araras, building robust back-end systems with Python/Django and Java/Spring Boot.',
+      'stat1': 'Years in QA', 'stat2': 'Real projects', 'stat3': 'FATEC Semester', 'stat4': 'Technologies',
+      'exp1-period': 'Jul 2023 – Present',
+      'exp1-desc': 'Production supervision via QMS with AVEVA PI System, material release in SAP, and CCP/OPRP data validation.',
+      'exp2-period': 'Feb 2013 – Jul 2023',
+      'exp2-desc': 'Yogurt production process operation, GMP standards application, and finished-product release analyses (Brix, pH).',
+      'certs-title': 'Certifications',
+      'contact-tag': '// 04 — Contact', 'contact-title': "Let's<br>work together.",
+      'contact-sub': 'Open to Junior Dev opportunities, freelance, and collaborations. Send a message!',
+      'btn-enviar': 'Send message →',
+      'footer-role': 'Junior Back-End Developer · Araras, SP',
+      'nome-ph': 'Your name', 'email-ph': 'Your e-mail', 'telefone-ph': 'Your phone', 'mensagem-ph': 'Your message',
+    }
+  };
+
+  function setLang(lang) {
+    const t = i18n[lang];
+    Object.keys(t).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = t[id];
+    });
+    document.getElementById('nome').placeholder = t['nome-ph'];
+    document.getElementById('email').placeholder = t['email-ph'];
+    document.getElementById('telefone').placeholder = t['telefone-ph'];
+    document.getElementById('mensagem').placeholder = t['mensagem-ph'];
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  }
 
   function toggleMenu() {
     document.getElementById('nav-links').classList.toggle('open');
