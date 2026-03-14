@@ -64,18 +64,51 @@
 
   /* PROJETOS */
   #projetos { background: var(--bg); }
-  .projects-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-  .project-item { background: var(--bg); padding: 2.5rem; display: grid; grid-template-columns: 80px 1fr auto; gap: 2rem; align-items: start; text-decoration: none; color: inherit; transition: background 0.3s; }
-  .project-item:hover { background: var(--bg3); }
-  .project-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); padding-top: 0.3rem; }
-  .project-body h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--text); margin-bottom: 0.6rem; }
-  .project-body p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; max-width: 600px; }
-  .project-highlights { list-style: none; margin-bottom: 1.25rem; }
-  .project-highlights li { font-size: 0.85rem; color: var(--muted); padding: 0.25rem 0 0.25rem 1.2rem; position: relative; }
-  .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent2); font-size: 0.7rem; top: 0.35rem; }
-  .project-tech { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .project-arrow { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--muted); flex-shrink: 0; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
-  .project-item:hover .project-arrow { border-color: var(--accent); color: var(--accent); transform: translate(2px,-2px); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: var(--border); }
+
+  /* PROJECT CARD */
+  .project-card { background: var(--bg); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background 0.3s; }
+  .project-card:hover { background: var(--bg3); }
+
+  /* BROWSER MOCKUP */
+  .browser-mockup { width: 100%; border-bottom: 1px solid var(--border); }
+  .browser-bar { background: #1a1a24; padding: 0.6rem 0.8rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--border); }
+  .browser-dots { display: flex; gap: 5px; }
+  .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .browser-dot.red { background: #e85d5d; }
+  .browser-dot.yellow { background: #e8c76a; }
+  .browser-dot.green { background: #5de0c5; }
+  .browser-url { flex: 1; background: #111118; border-radius: 4px; padding: 0.25rem 0.6rem; font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted); margin-left: 0.5rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .browser-screen { width: 100%; height: 200px; overflow: hidden; position: relative; background: #1a1a24; }
+  .browser-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: object-position 4s ease; display: block; }
+  .project-card:hover .browser-screen img { object-position: bottom; }
+
+  /* TERMINAL CARD */
+  .terminal-mockup { background: #0d1117; border-bottom: 1px solid var(--border); }
+  .terminal-bar { background: #161b22; padding: 0.6rem 0.8rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .terminal-title { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); flex: 1; text-align: center; }
+  .terminal-body { padding: 1.25rem; height: 200px; overflow: hidden; }
+  .terminal-line { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.9; display: flex; gap: 0.75rem; }
+  .t-method { font-weight: 500; min-width: 42px; }
+  .t-method.get { color: #5de0c5; }
+  .t-method.post { color: #e8c76a; }
+  .t-method.put { color: #7f9cf5; }
+  .t-method.del { color: #e87060; }
+  .t-route { color: #f0ede8; }
+  .t-status { margin-left: auto; color: #5de0c5; }
+  .t-status.created { color: #e8c76a; }
+  .t-comment { color: #444; font-size: 0.65rem; padding-left: 0.5rem; }
+  .t-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0.5rem 0; }
+
+  /* PROJECT INFO */
+  .project-info { padding: 1.5rem 1.75rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
+  .project-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); }
+  .project-arrow { width: 28px; height: 28px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; flex-shrink: 0; }
+  .project-card:hover .project-arrow { border-color: var(--accent); color: var(--accent); transform: translate(2px,-2px); }
+  .project-info h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .project-info p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
 
   /* SOBRE */
   #sobre { background: var(--bg2); }
@@ -107,15 +140,10 @@
   .social-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .social-link { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.5rem 1rem; transition: color 0.2s, border-color 0.2s; }
   .social-link:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
-
-  /* FORM */
   .contato-form { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-  .contato-form input,
-  .contato-form textarea { background: var(--bg2); border: none; outline: none; padding: 1rem 1.25rem; color: var(--text); font-family: var(--font-body); font-size: 0.9rem; font-weight: 300; width: 100%; transition: background 0.2s; }
-  .contato-form input::placeholder,
-  .contato-form textarea::placeholder { color: var(--muted); }
-  .contato-form input:focus,
-  .contato-form textarea:focus { background: var(--bg3); }
+  .contato-form input, .contato-form textarea { background: var(--bg2); border: none; outline: none; padding: 1rem 1.25rem; color: var(--text); font-family: var(--font-body); font-size: 0.9rem; font-weight: 300; width: 100%; transition: background 0.2s; }
+  .contato-form input::placeholder, .contato-form textarea::placeholder { color: var(--muted); }
+  .contato-form input:focus, .contato-form textarea:focus { background: var(--bg3); }
   .contato-form textarea { resize: vertical; min-height: 140px; }
   .form-submit { background: var(--accent); color: #0a0a0f; border: none; padding: 1rem 2rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: opacity 0.2s, transform 0.2s; width: 100%; }
   .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
@@ -139,8 +167,7 @@
     .nav-menu-btn { display: block; }
     .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
     .skill-group { grid-template-columns: 1fr; gap: 1rem; }
-    .project-item { grid-template-columns: 1fr; gap: 1rem; }
-    .project-num { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -163,7 +190,7 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-tag">// Junior Back-End Developer · FATEC Araras · 3º Semestre</p>
+    <p class="hero-tag">// Junior Back-End Developer · FATEC Araras · 4º Semestre</p>
     <h1 class="hero-title">Felipe<br><span>Rocha</span></h1>
     <div class="hero-roles">
       <span class="role-badge hot">Python · Django</span>
@@ -225,85 +252,217 @@
 <section id="projetos">
   <p class="section-tag reveal">// 02 — Projetos</p>
   <h2 class="section-title reveal">O que já<br>construí.</h2>
-  <div class="projects-list">
+  <div class="projects-grid">
 
-    <a class="project-item reveal" href="https://github.com/FlpRocha236" target="_blank" rel="noopener">
-      <span class="project-num">001</span>
-      <div class="project-body">
-        <h3>E-commerce API</h3>
-        <p>REST API completa para e-commerce com arquitetura em camadas (Controller / Service / Repository) seguindo boas práticas de mercado.</p>
-        <ul class="project-highlights">
-          <li>CRUD de produtos com controle de estoque, carrinho por cliente e gestão de pedidos</li>
-          <li>Fluxo de pagamento simulado com transições de status e rollback automático de estoque</li>
-          <li>Testes unitários com JUnit 5 + Mockito · ambiente containerizado com Docker Compose</li>
-          <li>Documentação Swagger/OpenAPI 3 completa · CORS configurado para Angular</li>
-        </ul>
-        <div class="project-tech">
-          <span class="tag hot">Java 17</span><span class="tag hot">Spring Boot 3</span>
-          <span class="tag hot">PostgreSQL</span><span class="tag">Docker</span>
-          <span class="tag">Swagger</span><span class="tag">JUnit 5</span>
+    <!-- 001 - E-commerce API (terminal) -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/ecommerce-api" target="_blank" rel="noopener">
+      <div class="terminal-mockup">
+        <div class="terminal-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <span class="terminal-title">ecommerce-api · Swagger UI</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="t-method get">GET</span><span class="t-route">/api/products</span><span class="t-status">200 OK</span></div>
+          <div class="terminal-line"><span class="t-method post">POST</span><span class="t-route">/api/products</span><span class="t-status created">201 Created</span></div>
+          <div class="terminal-line"><span class="t-method get">GET</span><span class="t-route">/api/cart/{customerId}</span><span class="t-status">200 OK</span></div>
+          <div class="terminal-line"><span class="t-method post">POST</span><span class="t-route">/api/orders</span><span class="t-status created">201 Created</span></div>
+          <hr class="t-divider">
+          <div class="terminal-line"><span class="t-method post">POST</span><span class="t-route">/api/payment/{orderId}</span><span class="t-status created">201 Created</span></div>
+          <div class="terminal-line"><span class="t-method del">DEL</span><span class="t-route">/api/orders/{id}/cancel</span><span class="t-status">200 OK</span></div>
+          <hr class="t-divider">
+          <div class="terminal-line t-comment"># JUnit 5 · Mockito · Docker Compose · Swagger/OpenAPI 3</div>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">001</span>
+          <div class="project-arrow">↗</div>
+        </div>
+        <h3>E-commerce API</h3>
+        <p>REST API completa com arquitetura em camadas, controle de estoque, fluxo de pagamento, testes unitários e ambiente containerizado.</p>
+        <div class="project-tech">
+          <span class="tag hot">Java 17</span><span class="tag hot">Spring Boot 3</span>
+          <span class="tag hot">PostgreSQL</span><span class="tag">Docker</span><span class="tag">JUnit 5</span>
+        </div>
+      </div>
     </a>
 
-    <a class="project-item reveal" href="https://github.com/FlpRocha236" target="_blank" rel="noopener">
-      <span class="project-num">002</span>
-      <div class="project-body">
+    <!-- 002 - E-commerce Frontend -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/ecommerce-frontend" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">mystore.vercel.app</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/ecommerce-frontend.png" alt="E-commerce Frontend — MyStore">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">002</span>
+          <div class="project-arrow">↗</div>
+        </div>
         <h3>E-commerce Frontend</h3>
-        <p>Interface integrada à E-commerce API com design responsivo inspirado na Apple Store.</p>
-        <ul class="project-highlights">
-          <li>Listagem, criação e edição de produtos com gerenciamento completo de carrinho</li>
-          <li>Checkout com endereço, processamento e cancelamento de pedidos com feedback via snackbars</li>
-        </ul>
+        <p>Interface integrada à E-commerce API com design minimalista inspirado na Apple Store. Carrinho, checkout e gestão de pedidos.</p>
         <div class="project-tech">
           <span class="tag hot">Angular 21</span><span class="tag hot">TypeScript</span>
           <span class="tag">Angular Material</span><span class="tag">RxJS</span>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
     </a>
 
-    <a class="project-item reveal" href="https://github.com/FlpRocha236/audio_project" target="_blank" rel="noopener">
-      <span class="project-num">003</span>
-      <div class="project-body">
+    <!-- 003 - AgendaDashboard -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/AgendaDashboard" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">agendadashboard.railway.app</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/agenda-dashboard.png" alt="AgendaDashboard — Gestão Financeira">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">003</span>
+          <div class="project-arrow">↗</div>
+        </div>
+        <h3>AgendaDashboard</h3>
+        <p>Sistema completo de gestão financeira com controle de orçamento, Robô Advisor com análise fundamentalista (Graham & Bazin) e módulo de saúde financeira.</p>
+        <div class="project-tech">
+          <span class="tag hot">Python</span><span class="tag hot">Django</span>
+          <span class="tag">Fintech</span><span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 004 - Rocha Açaí -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/Rocha_Acai" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">rochaacai.railway.app</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/rocha-acai.jpg" alt="Rocha Açaí — Delivery Manager">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">004</span>
+          <div class="project-arrow">↗</div>
+        </div>
+        <h3>Rocha Açaí</h3>
+        <p>Sistema completo de gestão para delivery. Dashboard com vendas em tempo real, controle de pedidos, estoque, financeiro e status da loja.</p>
+        <div class="project-tech">
+          <span class="tag hot">Python</span><span class="tag hot">Django</span>
+          <span class="tag">HTML/CSS</span><span class="tag">SQLite</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 005 - Hub Vendas / NextChange -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/hub_vendas" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">nextchange.com.br</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/hub-vendas.jpg" alt="NextChange — Hub de Vendas SaaS">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">005</span>
+          <div class="project-arrow">↗</div>
+        </div>
+        <h3>NextChange</h3>
+        <p>Plataforma SaaS para criadores de conteúdo hospedarem cursos e mentorias com taxa zero por venda e checkout de alta performance.</p>
+        <div class="project-tech">
+          <span class="tag hot">Python</span><span class="tag hot">Django</span>
+          <span class="tag">HTML/CSS</span><span class="tag">SaaS</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 006 - AI Audio Separator -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/audio_project" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">audio-splitter.railway.app</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/audio-separator.png" alt="AI Audio Separator — Audio Splitter Pro">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">006</span>
+          <div class="project-arrow">↗</div>
+        </div>
         <h3>AI Audio Separator</h3>
-        <p>Ferramenta back-end para separação assíncrona de faixas de áudio usando inteligência artificial.</p>
-        <ul class="project-highlights">
-          <li>Separação de stems via biblioteca Demucs processada em filas Celery</li>
-          <li>Arquitetura assíncrona para processamento pesado sem bloquear o servidor</li>
-        </ul>
+        <p>Ferramenta para separação assíncrona de faixas de áudio usando IA. Isola voz, bateria, guitarra, baixo e piano de qualquer música.</p>
         <div class="project-tech">
           <span class="tag hot">Python</span><span class="tag hot">Django</span>
           <span class="tag">Celery</span><span class="tag">Demucs</span>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
     </a>
 
-    <a class="project-item reveal" href="https://github.com/FlpRocha236/next-agenda" target="_blank" rel="noopener">
-      <span class="project-num">004</span>
-      <div class="project-body">
-        <h3>Sistemas de Agendamento & Gestão</h3>
-        <p>next-agenda (lógica de agendamentos) e CRUD completo para empresa de eventos — arquitetura MVC/MVT com banco relacional.</p>
-        <div class="project-tech">
-          <span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag">SQLite</span>
+    <!-- 007 - Next Agenda -->
+    <a class="project-card reveal" href="https://github.com/FlpRocha236/next-agenda" target="_blank" rel="noopener">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">next-agenda.railway.app</div>
+        </div>
+        <div class="browser-screen">
+          <img src="imgs/next-agenda.png" alt="Next Agenda — Sistema de Agendamento">
         </div>
       </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/FlpRocha236/AgendaDashboard" target="_blank" rel="noopener">
-      <span class="project-num">005</span>
-      <div class="project-body">
-        <h3>AgendaDashboard — Gestão Financeira</h3>
-        <p>Sistema completo de gestão financeira pessoal com controle de orçamento, Robô Advisor com análise fundamentalista (Graham & Bazin) e módulo de saúde financeira.</p>
+      <div class="project-info">
+        <div class="project-meta">
+          <span class="project-num">007</span>
+          <div class="project-arrow">↗</div>
+        </div>
+        <h3>Next Agenda</h3>
+        <p>Sistema de agendamento inteligente com dashboard de gestão, motor de disponibilidade automático e integração com WhatsApp.</p>
         <div class="project-tech">
           <span class="tag hot">Python</span><span class="tag hot">Django</span>
-          <span class="tag">Fintech</span><span class="tag">Financial Analysis</span>
+          <span class="tag">SQLite</span><span class="tag">WhatsApp API</span>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
     </a>
 
   </div>
@@ -318,7 +477,7 @@
       <p class="sobre-text reveal">Com mais de 10 anos em Quality Assurance na indústria, desenvolvi uma mentalidade analítica e foco em processos que hoje aplico diretamente no desenvolvimento de software. Atualmente no 3º semestre de Desenvolvimento de Software Multiplataforma na FATEC Araras, construindo sistemas back-end robustos com Python/Django e Java/Spring Boot.</p>
       <div class="sobre-stats reveal">
         <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Anos em QA</div></div>
-        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Projetos reais</div></div>
+        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Projetos reais</div></div>
         <div class="stat"><div class="stat-num">3º</div><div class="stat-label">Semestre FATEC</div></div>
         <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Tecnologias</div></div>
       </div>
@@ -398,45 +557,28 @@
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
     const mensagem = document.getElementById('mensagem').value.trim();
-
     if (!nome || !email || !mensagem) {
       status.textContent = 'Por favor, preencha nome, e-mail e mensagem.';
-      status.className = 'error';
-      return;
+      status.className = 'error'; return;
     }
-
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-    status.textContent = '';
-    status.className = '';
-
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    status.textContent = ''; status.className = '';
     emailjs.send("service_id", "template_id", {
-      nome: nome,
-      email: email,
-      telefone: document.getElementById('telefone').value,
-      mensagem: mensagem
+      nome, email, telefone: document.getElementById('telefone').value, mensagem
     }).then(() => {
-      status.textContent = '✓ Mensagem enviada com sucesso! Retorno em breve.';
-      status.className = 'success';
-      btn.textContent = 'Enviado!';
-      document.getElementById('nome').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('telefone').value = '';
-      document.getElementById('mensagem').value = '';
+      status.textContent = '✓ Mensagem enviada! Retorno em breve.';
+      status.className = 'success'; btn.textContent = 'Enviado!';
+      ['nome','email','telefone','mensagem'].forEach(id => document.getElementById(id).value = '');
       setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar mensagem →'; }, 3000);
     }, () => {
       status.textContent = '✗ Erro ao enviar. Tente pelo e-mail diretamente.';
-      status.className = 'error';
-      btn.disabled = false;
-      btn.textContent = 'Enviar mensagem →';
+      status.className = 'error'; btn.disabled = false; btn.textContent = 'Enviar mensagem →';
     });
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
